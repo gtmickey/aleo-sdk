@@ -81,7 +81,7 @@ impl ProgramManager {
         let inputs = inputs.to_vec();
         let rng = &mut StdRng::from_entropy();
 
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
 
         log("Check program imports are valid and add them to the process");
@@ -166,7 +166,7 @@ impl ProgramManager {
             Some(fee_record) => Self::validate_amount(fee_credits, fee_record, true)?,
             None => (fee_credits * 1_000_000.0) as u64,
         };
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
         let node_url = url.as_deref().unwrap_or(DEFAULT_URL);
 
@@ -260,7 +260,7 @@ impl ProgramManager {
         );
         log(&format!("Executing local function: {function}"));
 
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
 
         log("Check program imports are valid and add them to the process");

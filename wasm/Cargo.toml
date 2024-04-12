@@ -26,28 +26,28 @@ version = "=0.16.12"
 
 [dependencies.snarkvm-console]
 version = "=0.16.12"
-features = [ "wasm" ]
+#features = [ "wasm" ]
 
 [dependencies.snarkvm-ledger-block]
 version = "=0.16.12"
-features = [ "wasm" ]
+#features = [ "wasm" ]
 
 [dependencies.snarkvm-ledger-query]
 version = "=0.16.12"
-features = [ "async", "wasm" ]
+features = [ "async" ]
 
 [dependencies.snarkvm-ledger-store]
 version = "=0.16.12"
 
 [dependencies.snarkvm-parameters]
 version = "=0.16.12"
-features = [ "wasm" ]
+#features = [ "wasm" ]
 
 [dependencies.snarkvm-synthesizer]
 version = "=0.16.12"
-features = [ "async", "wasm" ]
+features = [ "async"]
 
-[dependencies.snarkvm-wasm]
+[dependencies.snarkvm]
 version = "0.16.12"
 features = [ "console", "fields", "utilities" ]
 
@@ -123,9 +123,9 @@ features = [
 version = "0.3.37"
 
 [features]
-default = [ "serial", "browser" ]
+default = [ "serial" ]
 serial = [ "snarkvm-console/serial", "snarkvm-synthesizer/serial", "snarkvm-ledger-query/serial", "snarkvm-ledger-block/serial", "snarkvm-ledger-store/serial" ]
-browser = [ ]
+#browser = [ ]
 
 ## Profiles
 [profile.release]
@@ -136,3 +136,6 @@ lto = true
 opt-level = 3
 lto = "thin"
 incremental = true
+
+[dependencies]
+tokio = { version = "1.37.0", features = ["full"] }

@@ -56,7 +56,7 @@ impl ProgramManager {
         inputs.set(0u32, wasm_bindgen::JsValue::from_str(&amount_record.to_string()));
         inputs.set(1u32, wasm_bindgen::JsValue::from_str(&amount_microcredits.to_string().add("u64")));
 
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
         let rng = &mut StdRng::from_entropy();
 

@@ -84,7 +84,7 @@ impl ProgramManager {
         inputs.set(0u32, wasm_bindgen::JsValue::from_str(&record_1.to_string()));
         inputs.set(1u32, wasm_bindgen::JsValue::from_str(&record_2.to_string()));
 
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
 
         let stack = process.get_stack("credits.aleo").map_err(|e| e.to_string())?;

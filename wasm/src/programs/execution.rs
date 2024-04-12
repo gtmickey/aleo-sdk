@@ -86,7 +86,7 @@ pub fn verify_function_execution(
 ) -> Result<bool, String> {
     let function = IdentifierNative::from_str(function_id).map_err(|e| e.to_string())?;
     let program_id = ProgramID::<CurrentNetwork>::from_str(&program.id()).unwrap();
-    let mut process = ProcessNative::load_web().map_err(|e| e.to_string())?;
+    let mut process = ProcessNative::load().map_err(|e| e.to_string())?;
     if &program.id() != "credits.aleo" {
         process.add_program(program).map_err(|e| e.to_string())?;
     }

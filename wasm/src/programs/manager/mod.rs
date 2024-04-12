@@ -208,7 +208,7 @@ function add_and_double:
         Reflect::set(&imports, &JsValue::from_str("double_test.aleo"), &JsValue::from_str(MULTIPLY_IMPORT_PROGRAM))
             .unwrap();
 
-        let mut process = ProcessNative::load_web().unwrap();
+        let mut process = ProcessNative::load().unwrap();
         let program = ProgramNative::from_str(NESTED_IMPORT_PROGRAM).unwrap();
         let add_program = ProgramNative::from_str(ADDITION_PROGRAM).unwrap();
         let multiply_program = ProgramNative::from_str(MULTIPLY_PROGRAM).unwrap();

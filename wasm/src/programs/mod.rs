@@ -22,9 +22,9 @@ pub use execution::*;
 pub mod keypair;
 pub use keypair::*;
 
-#[cfg(feature = "browser")]
+// #[cfg(feature = "browser")]
 pub mod manager;
-#[cfg(feature = "browser")]
+// #[cfg(feature = "browser")]
 pub use manager::*;
 
 pub mod offline_query;

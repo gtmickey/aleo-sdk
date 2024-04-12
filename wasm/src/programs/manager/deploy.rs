@@ -71,7 +71,7 @@ impl ProgramManager {
             None => (fee_credits * 1_000_000.0) as u64,
         };
 
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
 
         log("Checking program has a valid name");
@@ -142,7 +142,7 @@ impl ProgramManager {
         log(
             "Disclaimer: Fee estimation is experimental and may not represent a correct estimate on any current or future network",
         );
-        let mut process_native = ProcessNative::load_web().map_err(|err| err.to_string())?;
+        let mut process_native = ProcessNative::load().map_err(|err| err.to_string())?;
         let process = &mut process_native;
 
         log("Check program has a valid name");
